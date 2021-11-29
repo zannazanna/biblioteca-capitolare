@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\bookController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -14,6 +15,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
-});
+
+
+Route::get("/allBook", [bookController::class, "allBook"]);
+
+Route::post("/insertBook", [bookController::class, "insertBook"]);
+
+Route::delete("/deleteBook/{id}", [bookController::class, "deleteBook"]);
+
+Route::put("/modifica/{id}",[bookController::class, "modifica"]);
